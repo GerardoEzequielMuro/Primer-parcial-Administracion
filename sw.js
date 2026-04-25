@@ -1,7 +1,7 @@
 // Service Worker - Administración I Parcial 1
 // Permite usar toda la pagina sin internet despues de la primera visita.
 
-const CACHE = 'admin-i-v1';
+const CACHE = 'admin-i-v2';
 
 const ASSETS = [
   './',
@@ -9,6 +9,7 @@ const ASSETS = [
   './parciales.html',
   './mapa-mental.html',
   './formulas.html',
+  './parcial-real.html',
 
   './img/u1/evolucion-escuelas.png',
   './img/u2/sistema-abierto.png',

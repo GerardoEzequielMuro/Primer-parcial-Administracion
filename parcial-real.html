@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parcial real de la cátedra - Administración I | UCES</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1a1a1a">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;background:#fafafa;color:#1a1a1a;line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,250,250,.92);backdrop-filter:blur(10px);border-bottom:1px solid #e5e5e5;padding:12px 0}
+.nav-inner{max-width:820px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav-title{font-weight:600;font-size:15px}
+.nav-links{display:flex;gap:14px;font-size:12.5px}
+.nav-links a{color:#666;text-decoration:none;white-space:nowrap}
+.nav-links a:hover{color:#1a1a1a}
+.container{max-width:820px;margin:0 auto;padding:90px 32px 80px}
+h1{font-size:28px;font-weight:700;letter-spacing:-.02em;margin-bottom:6px;line-height:1.2}
+.subtitle{color:#666;font-size:14.5px;margin-bottom:28px}
+h2{font-size:20px;font-weight:700;margin:48px 0 12px;padding-top:22px;border-top:1px solid #e5e5e5;line-height:1.3}
+h2:first-of-type{border-top:none;padding-top:0;margin-top:0}
+h3{font-size:16px;font-weight:600;margin:22px 0 8px;color:#333}
+p{margin:8px 0;color:#333}
+strong{color:#1a1a1a;font-weight:600}
+ol,ul{margin:8px 0;padding-left:22px;color:#333}
+li{margin:5px 0}
+.real-box{background:#fff;border:1px solid #e5e5e5;border-radius:2px;padding:18px 22px;margin:14px 0}
+.real-box .meta{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#666;margin-bottom:8px}
+.text-source{background:#fafafa;border-left:2px solid #9ca3af;padding:14px 18px;margin:14px 0;font-size:14.5px;line-height:1.65}
+.text-source p{margin:8px 0;color:#444}
+.text-source .ref{display:inline-block;background:#1a1a1a;color:#fff;font-weight:700;padding:1px 6px;border-radius:3px;font-size:12px;margin-right:4px;vertical-align:middle}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.5px;border:1px solid #e5e5e5;background:#fff}
+th{background:#f5f5f5;text-align:left;padding:10px 12px;font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid #e5e5e5}
+td{padding:10px 12px;border-bottom:1px solid #f0f0f0;vertical-align:top;color:#333}
+tr:last-child td{border-bottom:none}
+.tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;margin-right:4px;margin-bottom:2px}
+.tag.micro{background:#dcfce7;color:#14532d}
+.tag.macro{background:#dbeafe;color:#1e3a8a}
+.tag.lineal{background:#fef3c7;color:#78350f}
+.tag.funcional{background:#fce7f3;color:#831843}
+.tag.staff{background:#ede9fe;color:#4c1d95}
+.tag.pos{background:#dcfce7;color:#14532d}
+.tag.neg{background:#fee2e2;color:#7f1d1d}
+.note{background:#eff6ff;border-left:2px solid #3b82f6;padding:10px 14px;margin:10px 0;font-size:13.5px;color:#1e3a8a;border-radius:2px}
+.q-box{background:#f5f5f5;padding:14px 18px;margin:14px 0;border-left:2px solid #1a1a1a;border-radius:2px}
+.q-box .pts{display:inline-block;background:#1a1a1a;color:#fff;padding:1px 8px;border-radius:10px;font-size:11px;font-weight:600;margin-left:6px}
+.ans-box{background:#f0f9f4;border-left:2px solid #16a34a;padding:14px 18px;margin:10px 0 18px;border-radius:2px;font-size:14.5px}
+.ans-box .lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#14532d;display:block;margin-bottom:6px}
+footer{margin-top:60px;padding-top:20px;border-top:1px solid #e5e5e5;color:#888;font-size:12.5px;text-align:center}
+@media(max-width:640px){body{font-size:15px}.container{padding:80px 18px 60px}.nav-inner{padding:0 16px;gap:10px}.nav-links{gap:10px;font-size:11.5px}h1{font-size:22px}h2{font-size:18px;margin-top:40px}table{font-size:12.5px}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-title">Parcial real de la cátedra</div>
+    <div class="nav-links">
+      <a href="index.html">← Resumen</a>
+      <a href="formulas.html">Casos</a>
+      <a href="parciales.html">Simulados</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+<h1>Parcial real de la cátedra</h1>
+<p class="subtitle">Administración de Empresas I · UCES · Lic. Marketing · Examen tomado por la profesora con sus respuestas oficiales</p>
+
+<div class="real-box">
+<div class="meta">📋 Origen del documento</div>
+<p>Este es el <strong>parcial real</strong> que tomó la cátedra, junto con las <strong>respuestas oficiales</strong> de la parte práctica que circulan en el archivo <em>"resultados parte práctica - prueba parcial"</em>. Se aprueba con <strong>60 puntos</strong> sobre 100.</p>
+</div>
+
+
+<h2>📐 Formato del parcial</h2>
+<table>
+<tr><th>Parte</th><th>Puntos</th><th>Contenido</th></tr>
+<tr><td><strong>Teórica</strong></td><td>30</td><td>3 preguntas: características de organizaciones, sistema abierto, identificar escuelas (10 pts c/u)</td></tr>
+<tr><td><strong>Práctica</strong></td><td>70</td><td>Variables del entorno (50 pts) + Relaciones formales (20 pts)</td></tr>
+<tr><td><strong>Total</strong></td><td>100</td><td>Aprueba con 60 pts</td></tr>
+</table>
+
+
+<h2>PARTE TEÓRICA (30 pts)</h2>
+
+<div class="q-box">
+<strong>1.</strong> ¿Cuáles son las características de las organizaciones? Explique brevemente cada una de ellas.<span class="pts">10 pts</span>
+</div>
+<div class="ans-box">
+<span class="lbl">✓ Respuesta oficial</span>
+<ul>
+<li><strong>División del trabajo:</strong> de las tareas, de las responsabilidades. Cada uno tendrá una tarea asignada.</li>
+<li><strong>Presencia de uno o más centros de poder:</strong> existe uno o un grupo de personas que son los que tomarán las decisiones.</li>
+<li><strong>Sustitución de personal:</strong> si una persona no desarrolla su trabajo correctamente, la misma puede ser sustituida o reemplazada por otra. También se podría rotar a la misma en otras funciones donde pueda desarrollar mejor su potencial.</li>
+</ul>
+</div>
+
+<div class="q-box">
+<strong>2.</strong> Explicar las organizaciones como sistemas abiertos.<span class="pts">10 pts</span>
+</div>
+<div class="ans-box">
+<span class="lbl">✓ Respuesta oficial</span>
+<p>Las organizaciones son consideradas <strong>sistemas abiertos</strong> porque <strong>interactúan con su entorno</strong>: de él reciben insumos, información, demandas, etc. La organización las procesa y dará una respuesta al entorno, pudiendo ser este un producto o servicio, una reacción o una no acción.</p>
+</div>
+
+<div class="q-box">
+<strong>3.</strong> Escuelas de la Administración. Identificar a cuál se hace referencia.<span class="pts">10 pts</span>
+<p style="margin-top:10px"><em>"La única manera de aumentar la productividad es elevando la eficiencia de los trabajadores. Propuso seleccionar y entrenar adecuadamente a los operarios, ubicándolos según sus cualidades físicas. Sistema de remuneración según rendimientos individuales."</em></p>
+<p><em>"Es el primero en sistematizar a la administración. Divide a las organizaciones en áreas. Elabora modelo de manual de funciones. Pensaba que las prácticas administrativas deben seguir ciertos patrones, los cuales se pueden identificar y analizar — 14 principios."</em></p>
+</div>
+<div class="ans-box">
+<span class="lbl">✓ Respuestas oficiales</span>
+<ul>
+<li>Primer bloque (eficiencia + cualidades físicas + remuneración por rendimiento) → <strong>TEORÍA CIENTÍFICA</strong> (Taylor)</li>
+<li>Segundo bloque (sistematizar + áreas + manual de funciones + 14 principios) → <strong>TEORÍA CLÁSICA</strong> (Fayol)</li>
+</ul>
+</div>
+
+
+<h2>PARTE PRÁCTICA (70 pts)</h2>
+
+
+<h2>Ejercicio 1: Variables del Entorno (50 pts)</h2>
+<p style="font-size:14px;color:#666">Texto: <strong>"El Turismo en Madrid"</strong>. Identificar las variables del entorno principales en cada oración resaltada.</p>
+
+<h3>Texto del parcial</h3>
+<div class="text-source">
+<p><span class="ref">1</span> En poco tiempo, la capital de España se está convirtiendo en uno de los <strong>destinos turísticos más concurridos del país y de Europa</strong>. Según la Encuesta de Ocupación Hotelera del INE, Madrid tuvo más de 9,3 millones de visitas internacionales en 2017.</p>
+
+<p><span class="ref">2</span> Pese a que el verano de 2018 fue la peor temporada turística en los últimos años en España, <strong>Madrid es la única comunidad autónoma que se ha beneficiado de un aumento de visitantes</strong>: la ciudad tuvo un 6,7% más de turistas.</p>
+
+<p><span class="ref">3</span> <strong>Históricamente, la joya de la corona del turismo español ha sido Barcelona. Y lo sigue siendo</strong>. Pero el atentado de las Ramblas, el movimiento independentista y la creciente turismofobia han provocado una caída del flujo de visitantes.</p>
+
+<p><span class="ref">4</span> <strong>Este empobrecimiento cultural ocasionado por lo que podemos llamar turistificación —el impacto que tiene el turismo de masas en las metrópolis— le podría suceder a cada vez más ciudades europeas, entre ellas, Madrid</strong>.</p>
+
+<p><span class="ref">5</span> <strong>La ciudad corre peligro de convertirse en otra capital uniformada más de Europa a cambio de la promesa de una fuerte inyección económica</strong>.</p>
+
+<p><span class="ref">6</span> <strong>El turismo representa más del 11% del PIB de España, pero eso no significa que las ganancias se redistribuyan entre todos los miembros de la sociedad</strong>.</p>
+
+<p><span class="ref">7</span> <strong>El aumento del valor de las calles se eleva en función de la demanda turística, lo que afecta a los inquilinos que radican en la ciudad</strong>.</p>
+
+<p><span class="ref">8</span> <strong>Ya hay empresas que gestionan edificios enteros para darlos a renta temporal después de desalojar a sus inquilinos</strong>.</p>
+
+<p><span class="ref">9</span> <strong>Esta situación ha llevado al Ayuntamiento de Madrid a designar "viviendas turísticas" a las que lo sean más de noventa días, tengan acceso independiente desde la calle y cuenten con una recepción</strong>, lo que significa que el 95% de la oferta actual es ilegal.</p>
+
+<p><span class="ref">10</span> <strong>Mientras ha habido protestas de los vecinos, se han abierto casi quinientos expedientes administrativos para cesar la actividad de algunos pisos</strong>.</p>
+
+<p><span class="ref">11</span> <strong>Los habitantes de Madrid tienen que organizarse para exigir tanto al gobierno como a las empresas que se benefician del turismo un equilibrio entre un turismo razonable y el bienestar de los residentes</strong>.</p>
+</div>
+
+<h3>Respuestas oficiales (cuadro de la cátedra)</h3>
+<table>
+<tr>
+<th style="width:38px">N°</th>
+<th>Variables identificadas</th>
+<th>Tipo</th>
+<th>Impacto</th>
+</tr>
+<tr>
+<td><strong>1</strong></td>
+<td>Sector económico · Competencia</td>
+<td><span class="tag micro">micro</span> <span class="tag micro">micro</span></td>
+<td><span class="tag pos">+</span> <span class="tag pos">+</span></td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>Sector económico · Clientes · Competencia</td>
+<td><span class="tag micro">micro</span></td>
+<td><span class="tag pos">+</span></td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>Competencia</td>
+<td><span class="tag micro">micro</span></td>
+<td><span class="tag neg">−</span></td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td>Factor cultural · Competencia</td>
+<td><span class="tag macro">macro</span> <span class="tag micro">micro</span></td>
+<td><span class="tag neg">−</span> <span class="tag pos">+</span></td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td>Sector económico · Factor económico</td>
+<td><span class="tag micro">micro</span> <span class="tag macro">macro</span></td>
+<td><span class="tag neg">−</span> <span class="tag neg">−</span></td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td>Sector económico · Factor económico</td>
+<td><span class="tag micro">micro</span> <span class="tag macro">macro</span></td>
+<td><span class="tag pos">+</span> <span class="tag pos">+</span></td>
+</tr>
+<tr>
+<td><strong>7</strong></td>
+<td>Sector económico · Clientes</td>
+<td><span class="tag micro">micro</span> <span class="tag micro">micro</span></td>
+<td><span class="tag neg">−</span> <span class="tag pos">+</span></td>
+</tr>
+<tr>
+<td><strong>8</strong></td>
+<td>Proveedores</td>
+<td><span class="tag micro">micro</span></td>
+<td><span class="tag pos">+</span></td>
+</tr>
+<tr>
+<td><strong>9</strong></td>
+<td>Proveedores · Factor político</td>
+<td><span class="tag micro">micro</span> <span class="tag macro">macro</span></td>
+<td><span class="tag pos">+</span></td>
+</tr>
+<tr>
+<td><strong>10</strong></td>
+<td>Grupos de referencia de presión directa · Factor político</td>
+<td><span class="tag micro">micro</span> <span class="tag macro">macro</span></td>
+<td><span class="tag neg">−</span></td>
+</tr>
+<tr>
+<td><strong>11</strong></td>
+<td>Grupos de referencia de presión directa · Factor político</td>
+<td><span class="tag micro">micro</span> <span class="tag macro">macro</span></td>
+<td>—</td>
+</tr>
+</table>
+
+<div class="note">
+<strong>Patrones que se repiten:</strong> el "sector económico" aparece muchas veces porque el texto habla todo el tiempo del rubro turismo. La "competencia" aparece cuando se compara Madrid con Barcelona u otras ciudades. Los "factores económicos macro" aparecen con datos de PIB, alquileres y empleo. Los "factores políticos macro" con leyes y acciones del Ayuntamiento. Los "grupos de presión directa" con vecinos organizados.
+</div>
+
+
+<h2>Ejercicio 2: Relaciones Formales (20 pts)</h2>
+<p style="font-size:14px;color:#666">Determinar a cuál de los tres tipos de relaciones formales corresponde cada situación.</p>
+
+<table>
+<tr><th>Caso</th><th>Relación</th></tr>
+<tr>
+<td>El Gerente de Producción establece el cronograma de elaboración y empaque del producto X para el mes de mayo.</td>
+<td><span class="tag lineal">lineal</span></td>
+</tr>
+<tr>
+<td>El asesor financiero de la compañía sugiere al Director de Finanzas un crédito para la empresa.</td>
+<td><span class="tag staff">staff</span></td>
+</tr>
+<tr>
+<td>La Gerente de RRHH de la empresa elabora un régimen de sanciones aplicables a todo el personal.</td>
+<td><span class="tag funcional">funcional</span></td>
+</tr>
+<tr>
+<td>La Gerente de Administración es responsable de las áreas de Compras y Contrataciones.</td>
+<td><span class="tag lineal">lineal</span></td>
+</tr>
+<tr>
+<td>La responsable de Compras emite una orden de pago para un proveedor.</td>
+<td><span class="tag lineal">lineal</span></td>
+</tr>
+<tr>
+<td>El área de Marketing informa a toda la empresa cuáles son los estándares a seguir.</td>
+<td><span class="tag funcional">funcional</span></td>
+</tr>
+<tr>
+<td>Los licenciados en marketing realizan un estudio de mercado, para que sea evaluado por el Director del área, ente decidirá o no si lo tendrá en cuenta.</td>
+<td><span class="tag staff">staff</span></td>
+</tr>
+</table>
+
+<div class="note">
+<strong>Reglas para distinguir:</strong> "establece", "es responsable", "emite" → <strong>lineal</strong>. "Sugiere", "para que decida otro" → <strong>staff</strong>. "Para todo el personal", "informa a toda la empresa" → <strong>funcional</strong>. Más casos resueltos en la sección <a href="formulas.html#relaciones">Casos resueltos paso a paso</a>.
+</div>
+
+
+<footer>
+Parcial real de la cátedra · Administración de Empresas I · UCES · Esp. Lic. Brugnoli y Lic. Rudaz
+</footer>
+
+</div>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  });
+}
+</script>
+
+</body>
+</html>
