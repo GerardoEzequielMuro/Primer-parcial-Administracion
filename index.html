@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Administración I - Parcial 1 | UCES 2026</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1a1a1a">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Administración">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  background:#fafafa;color:#1a1a1a;line-height:1.7;font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(250,250,250,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid #e5e5e5;padding:12px 0;
+}
+.nav-inner{
+  max-width:820px;margin:0 auto;padding:0 32px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.nav-title{font-weight:600;font-size:15px;white-space:nowrap}
+.nav-links{display:flex;gap:14px;overflow-x:auto;font-size:12.5px}
+.nav-links a{color:#666;text-decoration:none;white-space:nowrap}
+.nav-links a:hover{color:#1a1a1a}
+
+.container{max-width:820px;margin:0 auto;padding:90px 32px 80px}
+
+h1{font-size:30px;font-weight:700;letter-spacing:-.02em;margin-bottom:6px;line-height:1.2}
+.subtitle{color:#666;font-size:14.5px;margin-bottom:28px}
+
+h2{
+  font-size:22px;font-weight:700;margin:52px 0 14px;line-height:1.3;
+  padding-top:24px;border-top:1px solid #e5e5e5;
+}
+h2:first-of-type{border-top:none;padding-top:0;margin-top:0}
+.unit{
+  text-transform:uppercase;font-size:13px;letter-spacing:.12em;
+  color:#888;margin:60px 0 0;border:none;padding:0;font-weight:600;
+}
+h3{font-size:16px;font-weight:600;margin:24px 0 8px}
+
+p{margin:8px 0;color:#333}
+strong{color:#1a1a1a;font-weight:600}
+em{color:#333}
+ul,ol{margin:8px 0;padding-left:22px;color:#333}
+li{margin:4px 0}
+
+img.fig{
+  display:block;max-width:100%;height:auto;margin:14px auto;
+  border:1px solid #e5e5e5;background:#fff;padding:8px;border-radius:2px;
+}
+.fig-cap{font-size:12.5px;color:#888;text-align:center;margin:-8px 0 14px;font-style:italic}
+
+.box{
+  background:#f5f5f5;padding:14px 18px;margin:14px 0;
+  border-left:2px solid #1a1a1a;border-radius:2px;
+}
+.box p:first-child{margin-top:0}.box p:last-child{margin-bottom:0}
+.box .label{
+  font-size:10.5px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.08em;color:#666;display:block;margin-bottom:4px;
+}
+
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px;border:1px solid #e5e5e5;background:#fff}
+th{background:#f5f5f5;text-align:left;padding:8px 10px;font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid #e5e5e5}
+td{padding:8px 10px;border-bottom:1px solid #f0f0f0;vertical-align:top;color:#333}
+tr:last-child td{border-bottom:none}
+
+footer{margin-top:56px;padding-top:20px;border-top:1px solid #e5e5e5;color:#888;font-size:12.5px;text-align:center}
+
+@media(max-width:640px){
+  body{font-size:15px}
+  .container{padding:80px 18px 60px}
+  .nav-inner{padding:0 16px;gap:10px}
+  .nav-links{gap:10px;font-size:11.5px}
+  h1{font-size:24px}h2{font-size:18px;margin-top:42px}
+  table{font-size:12.5px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-title">Administración I · Parcial 1</div>
+    <div class="nav-links">
+      <a href="#u1">U1</a>
+      <a href="#u2">U2</a>
+      <a href="#u3">U3</a>
+      <a href="#casos">Casos</a>
+      <a href="mapa-mental.html">Mapa</a>
+      <a href="parciales.html">Parciales</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+<h1>Administración I. Primer Parcial</h1>
+<p class="subtitle">UCES 2026 · Esp. Lic. Brugnoli, Lic. Rudaz · Resumen del apunte de cátedra</p>
+
+<div class="box">
+<span class="label">Temario del 1° parcial</span>
+<p><strong>U1.</strong> Administración: concepto, ciencia/técnica/arte, ciclo administrativo (planificación, organización, dirección, control). Escuelas: Clásica (Taylor + Fayol), Burocrática (Weber), Relaciones Humanas (Mayo), Sociología/Psicología (Maslow + McGregor), Sistemas, Estratégica.</p>
+<p><strong>U2.</strong> La organización: concepto, características, tipos. Sistema abierto (entrada-proceso-salida). Variables del entorno: macroentorno y microentorno.</p>
+<p><strong>U3.</strong> Estructuras orgánicas: diseño organizacional, principios (unidad de mando, amplitud de control, delegación, coordinación). Relaciones formales: lineal, funcional, staff. Departamentalización. Centralización vs descentralización.</p>
+<p style="margin-top:10px">
+  <a href="formulas.html" style="color:#1a1a1a;font-weight:600;margin-right:14px">→ Casos resueltos paso a paso</a>
+  <a href="mapa-mental.html" style="color:#1a1a1a;font-weight:600;margin-right:14px">→ Mapa mental</a>
+  <a href="parciales.html" style="color:#1a1a1a;font-weight:600">→ 3 parciales simulados</a>
+</p>
+</div>
+
+
+<h2 class="unit" id="u1">Unidad 1. Administración. Evolución y fundamentos</h2>
+
+
+<h2 id="u1-concepto">1. Concepto de Administración</h2>
+<p>La palabra viene del latín: <em>ad</em> ("hacia, dirección") + <em>minister</em> ("subordinación, obediencia"). Administrar es <strong>conducir o gestionar recursos para alcanzar un objetivo</strong>. Es un <strong>medio para un fin</strong>, no un fin en sí mismo.</p>
+
+<div class="box">
+<span class="label">Definición operativa</span>
+<p>La administración es un <strong>proceso de planear, organizar, dirigir y controlar</strong> el uso de recursos (humanos, materiales, financieros, tecnológicos) para lograr objetivos en una organización. Es un proceso <strong>repetitivo y que se retroalimenta</strong>.</p>
+</div>
+
+<h3>Administración como ciencia, técnica y arte</h3>
+<table>
+<tr><th>Faceta</th><th>Qué hace</th><th>Cómo</th></tr>
+<tr><td><strong>Ciencia</strong></td><td>Investiga, explica y predice el comportamiento</td><td>Mediante hipótesis, teorías, leyes y modelos. Su objeto de estudio: las <em>organizaciones</em>.</td></tr>
+<tr><td><strong>Técnica</strong></td><td>Transforma y opera la realidad</td><td>Con un conjunto de herramientas, reglas, normas y procedimientos definidos. Valida la ciencia.</td></tr>
+<tr><td><strong>Arte</strong></td><td>Aplicación personal del administrador</td><td>Es <em>subjetivo</em> (depende de cada persona), <em>vivencial</em> (depende de la experiencia), <em>individual</em> (único en cada ser). Vinculado a la personalidad del administrador.</td></tr>
+</table>
+
+<p>Ciencia y técnica <strong>se complementan</strong>: la ciencia investiga y explica, aporta el conocimiento; la técnica opera y transforma mediante reglas. La técnica realimenta a la ciencia para redefinir su explicación.</p>
+
+
+<h2 id="u1-ciclo">2. Funciones de la Administración (ciclo administrativo)</h2>
+
+<p>Son las <strong>cuatro funciones</strong> que constituyen el proceso administrativo. Es cíclico: termina y vuelve a empezar.</p>
+
+<h3>2.1. Planificación</h3>
+<div class="box">
+<p>Primer paso. Es <strong>prever</strong>: determinar los objetivos, armar planes y programar actividades. Se definen <strong>qué, cuándo, cómo y quién</strong>.</p>
+</div>
+<p><strong>Para qué planificar:</strong> evitar sorpresas. Permite anticipar lo que va a ocurrir y decidir qué hacer.</p>
+
+<h3>Tipos de objetivos según plazo</h3>
+<ul>
+  <li><strong>Remoto</strong> (largo plazo)</li>
+  <li><strong>Mediano plazo</strong></li>
+  <li><strong>Corto plazo</strong></li>
+</ul>
+<p>Los objetivos pueden ser <strong>generales</strong> y <strong>específicos</strong>. Toda la organización tiene que conocer los <strong>objetivos generales</strong> para evitar lo que se llama "compartimientos estancos" (cada área tirando para su lado).</p>
+
+<div class="box">
+<p><strong>Coherencia:</strong> los objetivos tienen que ser coherentes <strong>vertical</strong> (entre niveles jerárquicos) y <strong>horizontal</strong> (entre áreas del mismo nivel). Comunicación total.</p>
+</div>
+
+<h3>Tipos de planes según método</h3>
+<table>
+<tr><th>Tipo</th><th>Foco</th><th>Representación</th></tr>
+<tr><td><strong>Procedimientos</strong></td><td>Métodos de trabajo o ejecución</td><td>Flujogramas</td></tr>
+<tr><td><strong>Presupuestos</strong></td><td>Dinero (cuánto se va a gastar)</td><td>Tabla de gastos</td></tr>
+<tr><td><strong>Cronogramas</strong></td><td>Tiempo</td><td>Diagrama de Gantt</td></tr>
+<tr><td><strong>Normas de comportamiento</strong></td><td>Conductas (cómo actuar)</td><td>Manual de convivencia</td></tr>
+</table>
+
+<h3>2.2. Organización</h3>
+<p>Una vez definidos los objetivos, hay que organizar los <strong>cuatro elementos</strong>:</p>
+<ul>
+  <li><strong>Tareas</strong> que se van a desarrollar para cumplir los planes.</li>
+  <li><strong>Personas</strong> que ejecutarán esas tareas.</li>
+  <li><strong>Órganos</strong> (en administración significa <em>áreas</em>: CRM, Marketing, RRHH, etc).</li>
+  <li><strong>Relaciones</strong>: cómo van a interactuar todas las áreas entre sí.</li>
+</ul>
+
+<h3>2.3. Dirección</h3>
+<div class="box">
+<p>Implica <strong>poner a funcionar la organización</strong>. Es la <em>acción</em>: orientar y/o ayudar para ejecutar lo planificado.</p>
+</div>
+
+<h3>Autoridad vs. Poder</h3>
+<table>
+<tr><th></th><th>Autoridad</th><th>Poder</th></tr>
+<tr><td><strong>Qué es</strong></td><td>Una <em>responsabilidad</em> que se designa</td><td>Una <em>habilidad</em> que se ejerce</td></tr>
+<tr><td><strong>Origen</strong></td><td>Te lo designan</td><td>Lo construís</td></tr>
+</table>
+
+<h3>5 Tipos de poder</h3>
+<ul>
+  <li><strong>De recompensa:</strong> seguís a alguien porque te da una recompensa (tangible o no).</li>
+  <li><strong>Coercitivo:</strong> está determinado por el cargo asignado.</li>
+  <li><strong>Legitimado:</strong> legítimás esa posición porque considerás válido seguirla.</li>
+  <li><strong>De referencia:</strong> te sentís relacionado o reflejado en esa persona.</li>
+  <li><strong>Experto:</strong> reconocés a la persona por su conocimiento en un tema.</li>
+</ul>
+
+<h3>Principios de dirección</h3>
+<ul>
+  <li><strong>Unidad de mando:</strong> uno solo tiene el poder. Si hay más de una autoridad, se viola el principio.</li>
+  <li><strong>Delegación:</strong> se delega la <em>acción</em>, no la <em>responsabilidad</em>. La responsabilidad sigue siendo del que delegó. Está vinculada a la confianza.</li>
+  <li><strong>Amplitud de control:</strong> cantidad de personas que pueden depender de una. A mayor complejidad de tarea, menos personas se pueden controlar bien.</li>
+  <li><strong>Coordinación o relaciones funcionales:</strong> que todo lo definido se cumpla. Es la ejecución en sí.</li>
+</ul>
+
+<h3>Alcance de la dirección (3 niveles)</h3>
+<table>
+<tr><th>Nivel</th><th>Cargo</th><th>Quiénes</th></tr>
+<tr><td><strong>Institucional</strong></td><td>Dirección</td><td>Directores y altos ejecutivos</td></tr>
+<tr><td><strong>Intermedio</strong></td><td>Gerencia</td><td>Gerentes y mandos medios</td></tr>
+<tr><td><strong>Operacional</strong></td><td>Supervisión</td><td>Supervisores y encargados</td></tr>
+</table>
+
+<h3>2.4. Control</h3>
+<p>Comparar lo planificado con lo ejecutado. Tiene 3 pasos:</p>
+<ol>
+  <li><strong>Estándar:</strong> piso o criterio que define lo que va bien de lo que va mal (ej: "facturar mínimo $10M al mes").</li>
+  <li><strong>Observación de desempeño:</strong> ver cómo se está ejecutando.</li>
+  <li><strong>Acción correctiva:</strong> momento de corrección. Es la fase más importante: si controlás pero no corregís, no sirve de nada.</li>
+</ol>
+
+<h3>Tipos de estándares</h3>
+<ul>
+  <li><strong>Cantidad</strong> (relacionado a un monto).</li>
+  <li><strong>Calidad</strong> (criterios específicos).</li>
+  <li><strong>Tiempo</strong> (plazo X).</li>
+  <li><strong>Costo</strong> (presupuesto X, ni más ni menos).</li>
+</ul>
+
+
+<h2 id="u1-escuelas">3. Origen y evolución de la Administración (Escuelas)</h2>
+
+<img class="fig" src="img/u1/evolucion-escuelas.png" alt="Timeline de las escuelas de administración">
+<div class="fig-cap">Línea de tiempo de las 6 escuelas principales de administración.</div>
+
+<h3>3.1. Escuela Clásica (1841-1925)</h3>
+<p><strong>Contexto:</strong> Revolución Industrial. Sustitución del hierro por acero. Vapor reemplazado por electricidad y petróleo. Máquinas automáticas, especialización. Surge el capitalismo financiero.</p>
+
+<div class="box">
+<span class="label">Frederick W. Taylor — Teoría Científica</span>
+<p><strong>Hipótesis:</strong></p>
+<ul>
+  <li>La única manera de aumentar la productividad es elevando la <strong>eficiencia de los trabajadores</strong>.</li>
+  <li>Seleccionar y entrenar a los operarios <strong>según sus cualidades físicas</strong>.</li>
+  <li>Sistema de remuneración <strong>según rendimientos individuales</strong>.</li>
+</ul>
+<p><strong>Resultados:</strong> productividad aumentó 40% a 300%. Eficiencia subió y se redujo la jornada. Salarios subieron 50% a 100%.</p>
+<p><strong>Limitaciones:</strong> no contempla al hombre en toda su dimensión (sólo lo ve como pieza productiva). Excesiva exigencia. La búsqueda extrema de especialización generó problemas de coordinación y desaliento.</p>
+</div>
+
+<div class="box">
+<span class="label">Henri Fayol — Teoría Clásica</span>
+<p><strong>Hipótesis:</strong></p>
+<ul>
+  <li>Es el <strong>primero en sistematizar</strong> la administración.</li>
+  <li><strong>Divide las organizaciones en áreas</strong>.</li>
+  <li>Elabora un <strong>modelo de manual de funciones</strong>.</li>
+  <li>Las prácticas administrativas siguen ciertos patrones, identificados como <strong>14 principios</strong>.</li>
+</ul>
+<p><strong>Resultados:</strong> determina 5 funciones básicas de la administración. Describe las áreas de operación de una empresa. Plantea los 14 principios.</p>
+<p><strong>Limitaciones:</strong> considera la autoridad de "derecho divino" y desconoce el papel del líder. Considera al individuo como una constante. Sus ideas de comunicación priorizan la autoridad sobre el flujo de información.</p>
+</div>
+
+<h3>3.2. Escuela Burocrática (1910-1950)</h3>
+<div class="box">
+<span class="label">Max Weber</span>
+<p><strong>Hipótesis:</strong></p>
+<ul>
+  <li>Carácter <strong>legal</strong> de las normas y reglamentos.</li>
+  <li>Carácter <strong>formal</strong> de las comunicaciones.</li>
+  <li>Carácter racional y división del trabajo.</li>
+  <li><strong>Impersonalidad</strong> en las relaciones (foco en el puesto, no en el individuo).</li>
+  <li><strong>Jerarquía</strong> de autoridad.</li>
+</ul>
+<p><strong>Resultados:</strong> profundización en organigrama, manual de funciones, autoridad y responsabilidades.</p>
+<p><strong>Limitaciones:</strong> falta de rigor científico (mezcla teorías, técnicas y leyes). Apego excesivo a reglamentos, papeleo. Es un <strong>sistema cerrado</strong> (no contempla el entorno).</p>
+</div>
+
+<h3>3.3. Escuela de Relaciones Humanas (1925-1935)</h3>
+<div class="box">
+<span class="label">Elton Mayo</span>
+<p><strong>Hipótesis:</strong></p>
+<ul>
+  <li>El hombre está motivado por un <strong>complejo juego de factores</strong>, no sólo el económico.</li>
+  <li>Analiza cómo la <strong>participación e involucramiento</strong> motivan la cooperación (<em>experimentos de Hawthorne</em>).</li>
+  <li>Énfasis en el <strong>grupo y sus reglas</strong>. El hombre es un ser social.</li>
+  <li>Descubre la figura del <strong>líder</strong>. Distingue tipos.</li>
+  <li>Existencia de <strong>organización formal e informal</strong>.</li>
+</ul>
+<p><strong>Resultados:</strong> selección del trabajador según características humanas para cada tarea. Atención a aspectos sociales del trabajo (por encima de lo productivo).</p>
+<p><strong>Limitaciones:</strong> trabajo excesivamente teórico, poca aplicación empresarial. Falta rigor científico.</p>
+</div>
+
+<h3>3.4. Escuela de Sociología Industrial y Psicología (1935-1950)</h3>
+<div class="box">
+<span class="label">Maslow + McGregor</span>
+<p><strong>Hipótesis:</strong> se enfocaron en el rol del individuo y su personalidad, en la dinámica grupal, motivación y participación.</p>
+<p><strong>Resultados:</strong></p>
+<ul>
+  <li>Existencia de tipologías grupales y de liderazgo.</li>
+  <li>Tres modelos de participación: <strong>no participación, participación amplia, participación relativa</strong>.</li>
+  <li>Necesidad de distintos tipos de líderes según la situación.</li>
+  <li>Desarrollo de la <strong>Teoría X e Y</strong> de McGregor.</li>
+  <li>Pirámide de necesidades de Maslow.</li>
+</ul>
+<p><strong>Limitaciones:</strong> sus modelos quedaron limitados a teorías y explicaciones, sin metodología clara de aplicación.</p>
+</div>
+
+<h3>3.5. Teoría de los Sistemas (1950-1970)</h3>
+<div class="box">
+<p><strong>Hipótesis:</strong></p>
+<ul>
+  <li>Considera a las organizaciones como <strong>unidades que se relacionan entre sí y con el medio ambiente</strong>.</li>
+  <li>Un sistema es un <strong>conjunto de partes interconectadas</strong> que buscan un objetivo común.</li>
+  <li>Los sistemas pertenecen a otro mayor: siempre están dentro de otro sistema.</li>
+  <li>Las funciones del sistema dependen de su <strong>estructura</strong>.</li>
+</ul>
+<p><strong>Aporte clave:</strong> considerar a la organización como un <strong>todo interrelacionado</strong> teniendo en cuenta el entorno.</p>
+<p><strong>Limitaciones:</strong> no aporta tanto en lo práctico, sino más bien modelos teóricos.</p>
+</div>
+
+<h3>3.6. Administración Estratégica (1970 en adelante)</h3>
+<p>Surge en un contexto de mayor competencia global y necesidad de planificar a largo plazo. Aporta el pensamiento estratégico, la visión competitiva, los planes estratégicos. Hereda mucho de la Teoría de Sistemas.</p>
+
+
+<h2 class="unit" id="u2">Unidad 2. La Organización</h2>
+
+
+<h2 id="u2-concepto">1. Concepto y características</h2>
+<div class="box">
+<span class="label">Definición</span>
+<p>Las organizaciones son <strong>unidades sociales</strong> (o grupos de personas) <strong>deliberadamente constituidas para fines específicos</strong>.</p>
+</div>
+
+<h3>3 características fundamentales</h3>
+<ul>
+  <li><strong>División del trabajo:</strong> se reparten tareas y responsabilidades. Cada uno tiene una tarea asignada.</li>
+  <li><strong>Presencia de uno o más centros de poder:</strong> existe una persona o grupo que toma las decisiones.</li>
+  <li><strong>Sustitución de personal:</strong> si una persona no desarrolla bien su trabajo, puede ser <em>sustituida</em> o reemplazada por otra. También se puede <em>rotar</em> en otras funciones donde rinda mejor.</li>
+</ul>
+
+
+<h2 id="u2-tipos">2. Tipos de organización</h2>
+<table>
+<tr><th>Criterio</th><th>Tipos</th></tr>
+<tr><td><strong>Origen del capital</strong></td><td>Nacional / Extranjera / Mixta</td></tr>
+<tr><td><strong>Sistema de autoridad</strong></td><td>Autoritarias / Participativas</td></tr>
+<tr><td><strong>Objetivos</strong></td><td>Con fines de lucro / Sin fines de lucro</td></tr>
+<tr><td><strong>Composición del capital</strong></td><td>Públicas / Privadas / Mixtas</td></tr>
+</table>
+
+
+<h2 id="u2-sistema">3. La organización como sistema abierto</h2>
+
+<img class="fig" src="img/u2/sistema-abierto.png" alt="Esquema de organización como sistema abierto">
+<div class="fig-cap">Sistema abierto: el entorno entra como insumo, la organización lo procesa y devuelve productos/servicios al entorno.</div>
+
+<p>Las organizaciones son <strong>sistemas abiertos</strong> porque interactúan con su entorno. Tienen 3 momentos:</p>
+
+<table>
+<tr><th>Etapa</th><th>Qué incluye</th></tr>
+<tr><td><strong>Entrada</strong></td><td>Materia prima, información, expectativas</td></tr>
+<tr><td><strong>Proceso</strong></td><td>Tareas, relaciones interpersonales, estructura, cultura organizacional</td></tr>
+<tr><td><strong>Salida</strong></td><td>Productos, servicios</td></tr>
+</table>
+
+<div class="box">
+<span class="label">Principio de causalidad recíproca</span>
+<p>El entorno condiciona a la organización, y ésta, como realidad dinámica, condiciona dinámicamente al entorno. Es de doble vía.</p>
+</div>
+
+
+<h2 id="u2-entorno">4. Variables del entorno</h2>
+
+<img class="fig" src="img/u2/variables-entorno.png" alt="Variables del entorno: macro y micro">
+<div class="fig-cap">El entorno se divide en dos: lo que influye directo (microentorno) y lo que influye indirecto (macroentorno).</div>
+
+<div class="box">
+<span class="label">Definición</span>
+<p>Las <strong>variables del entorno</strong> son el conjunto de elementos o actores externos a la organización que son <strong>pertinentes y relevantes</strong> para su actuación.</p>
+</div>
+
+<img class="fig" src="img/u2/entorno-organizacion.jpeg" alt="Rueda de variables del entorno">
+<div class="fig-cap">Esquema completo: anillo interior = microentorno, anillo exterior = macroentorno.</div>
+
+<h3>Microentorno (influencia directa)</h3>
+<table>
+<tr><th>Variable</th><th>Qué es</th></tr>
+<tr><td><strong>Clientes</strong></td><td>Quienes consumen el producto/servicio. Definen la demanda.</td></tr>
+<tr><td><strong>Competidores</strong></td><td>Otras empresas que ofrecen lo mismo o sustitutos.</td></tr>
+<tr><td><strong>Proveedores</strong></td><td>Quienes proveen los insumos.</td></tr>
+<tr><td><strong>Sector económico</strong></td><td>Industria donde opera la organización.</td></tr>
+<tr><td><strong>Sindicatos</strong></td><td>Representan a los trabajadores en negociaciones.</td></tr>
+<tr><td><strong>Sistemas financieros</strong></td><td>Bancos, financieras (acceso a crédito).</td></tr>
+<tr><td><strong>Grupos de referencia de presión directa</strong></td><td>Lobbies, ONGs específicas que influyen al sector.</td></tr>
+</table>
+
+<h3>Macroentorno (influencia indirecta)</h3>
+<table>
+<tr><th>Variable</th><th>Qué es</th></tr>
+<tr><td><strong>Sociedad</strong></td><td>Conjunto de la población.</td></tr>
+<tr><td><strong>Tecnología</strong></td><td>Avances tecnológicos del momento.</td></tr>
+<tr><td><strong>Factores culturales</strong></td><td>Valores, costumbres, modas.</td></tr>
+<tr><td><strong>Factores económicos</strong></td><td>Inflación, tipo de cambio, PBI, desempleo.</td></tr>
+<tr><td><strong>Factores políticos</strong></td><td>Gobierno, leyes, regulaciones.</td></tr>
+<tr><td><strong>Grupos de referencia de presión indirecta</strong></td><td>ONGs, organismos internacionales, medios.</td></tr>
+</table>
+
+<div class="box">
+<span class="label">Ejemplos del parcial 2024</span>
+<p>"El movimiento independentista catalán" → factor político (macro). "El atentado de las Ramblas" → factor político (macro). "Aumento del precio del alquiler" → factor económico (macro) + sector económico (micro). "Apertura de franquicias McDonald's" → competidores (micro).</p>
+</div>
+
+
+<h2 class="unit" id="u3">Unidad 3. Estructuras Orgánicas</h2>
+
+
+<h2 id="u3-diseno">1. Diseño organizacional</h2>
+<div class="box">
+<span class="label">Definición</span>
+<p>Actividad en la que se define la <strong>estructura orgánica</strong>, la cual es <strong>única y específica para cada organización</strong>, teniendo en cuenta su <strong>estrategia, entorno y tecnología</strong>.</p>
+</div>
+
+<h3>Importancia</h3>
+<ul>
+  <li>Define la <strong>estructura funcional</strong> de la organización.</li>
+  <li>Determina la <strong>ubicación de cada agente</strong> dentro de esa estructura.</li>
+  <li>Establece las <strong>relaciones de autoridad y/o dependencia jerárquica</strong>.</li>
+</ul>
+
+
+<h2 id="u3-principios">2. Principios de estructuras orgánicas</h2>
+
+<table>
+<tr><th>Principio</th><th>Significado</th></tr>
+<tr><td><strong>Unidad de mando</strong></td><td>Cada subordinado debe tener un solo jefe directo. Si tiene dos, se viola el principio (genera conflictos).</td></tr>
+<tr><td><strong>Delegación</strong></td><td>Se puede delegar la <em>acción</em>, pero <strong>no la responsabilidad</strong>. El que delegó sigue siendo responsable.</td></tr>
+<tr><td><strong>Amplitud de control</strong></td><td>Cantidad de personas que un jefe puede controlar bien. A mayor complejidad de tarea, menor amplitud (menos gente a cargo).</td></tr>
+<tr><td><strong>Coordinación o relaciones funcionales</strong></td><td>Asegurar que todo lo planificado se ejecute armónicamente.</td></tr>
+</table>
+
+
+<h2 id="u3-relaciones">3. Relaciones formales</h2>
+
+<p>Hay <strong>3 tipos</strong> de relaciones formales que pueden existir en una organización:</p>
+
+<h3>3.1. Relación lineal (Principio Escalar)</h3>
+<img class="fig" src="img/u3/organigrama-lineal.png" alt="Organigrama lineal">
+<div class="fig-cap">Estructura lineal: líneas directas de autoridad de jefe a subordinado.</div>
+<div class="box">
+<p>Entre superiores y subordinados existen <strong>líneas directas de autoridad y responsabilidad</strong>. Se aplican a las funciones primarias (las del corazón del negocio).</p>
+</div>
+<p><strong>Características:</strong></p>
+<ul>
+  <li>Autoridad lineal única.</li>
+  <li>Comunicación formal.</li>
+  <li>Centralización de decisiones.</li>
+  <li>Configuración piramidal.</li>
+</ul>
+
+<h3>3.2. Relación funcional (especialización)</h3>
+<img class="fig" src="img/u3/organigrama-funcional.png" alt="Organigrama funcional">
+<div class="fig-cap">Estructura funcional: distintas áreas tienen autoridad parcial sobre la misma sección según su especialidad.</div>
+<div class="box">
+<p>Aplica el principio de <strong>especialización</strong>. Ningún superior tiene autoridad total sobre los subordinados, sino <strong>autoridad parcial y relativa</strong> según su especialidad.</p>
+</div>
+<p><strong>Características:</strong></p>
+<ul>
+  <li>Autoridad funcional y dividida.</li>
+  <li>Líneas directas de comunicación.</li>
+  <li>Énfasis en la especialización.</li>
+</ul>
+
+<h3>3.3. Relación staff (asesoría)</h3>
+<img class="fig" src="img/u3/organigrama-staff.png" alt="Organigrama staff">
+<div class="fig-cap">Estructura staff: combina lineal con asesores que recomiendan pero no ordenan.</div>
+<div class="box">
+<p>Es una <strong>combinación de la organización funcional y lineal</strong>. Los staff tienen autoridad de <strong>asesoría, planeación y control, consultoría y recomendación</strong>. <strong>No pueden dar órdenes directas</strong> a niveles inferiores: sólo pueden asesorar a su superior jerárquico.</p>
+</div>
+<p><strong>Características:</strong></p>
+<ul>
+  <li>Fusión de estructura lineal y funcional.</li>
+  <li>Coexistencia de líneas formales y directas de comunicación.</li>
+  <li>Separación de actividades sustantivas (lineal) y de apoyo (staff).</li>
+</ul>
+
+
+<h2 id="u3-departamentalizacion">4. Departamentalización</h2>
+<div class="box">
+<span class="label">Definición</span>
+<p>Es la <strong>agrupación de actividades y personas en departamentos</strong> que permite llevar a cabo el trabajo de la organización.</p>
+</div>
+
+<h3>Tipos de departamentalización</h3>
+<table>
+<tr><th>Tipo</th><th>Cuándo conviene</th><th>Ejemplo</th></tr>
+<tr><td><strong>Por funciones</strong></td><td>Empresas con productos similares, operaciones estables</td><td>Marketing, Ventas, Producción, Finanzas</td></tr>
+<tr><td><strong>Por área geográfica</strong></td><td>Empresas con presencia en muchas regiones</td><td>Norte, Sur, Centro / LATAM, EMEA, APAC</td></tr>
+<tr><td><strong>Por tiempo</strong></td><td>Operación 24/7</td><td>Turno mañana, tarde, noche</td></tr>
+<tr><td><strong>Por proceso</strong></td><td>Producción continua, etapas claras</td><td>Corte, ensamblado, pintura, empaque</td></tr>
+<tr><td><strong>Por producto</strong></td><td>Empresas con líneas de productos diferentes</td><td>P&G: belleza, cuidado del hogar, alimentos</td></tr>
+<tr><td><strong>Matricial</strong></td><td>Proyectos complejos, especialistas multitarea</td><td>Cada persona reporta a su área <em>y</em> a su proyecto</td></tr>
+</table>
+
+
+<h2 id="u3-centralizacion">5. Centralización vs. descentralización</h2>
+
+<table>
+<tr><th></th><th>Centralización</th><th>Descentralización</th></tr>
+<tr><td><strong>Quién decide</strong></td><td>La cúpula (top)</td><td>Niveles más bajos</td></tr>
+<tr><td><strong>Ventajas</strong></td><td>Coherencia, control, decisiones uniformes</td><td>Velocidad de decisión, motivación, desarrollo de gerentes</td></tr>
+<tr><td><strong>Desventajas</strong></td><td>Decisiones lentas, desconexión del campo, demora la innovación</td><td>Posible falta de coherencia, decisiones inconsistentes entre áreas</td></tr>
+</table>
+
+<h3>Factores que determinan el grado de centralización</h3>
+<ul>
+  <li><strong>Costo de la decisión:</strong> a mayor costo, más se centraliza.</li>
+  <li><strong>Tamaño de la organización:</strong> a mayor tamaño, más se descentraliza.</li>
+  <li><strong>Estilo de liderazgo:</strong> autoritario centraliza, participativo descentraliza.</li>
+  <li><strong>Disponibilidad y calidad de información:</strong> con buena info en niveles bajos, conviene descentralizar.</li>
+  <li><strong>Capacidad de los gerentes:</strong> con gerentes capaces, conviene descentralizar.</li>
+  <li><strong>Contexto:</strong> entornos dinámicos exigen descentralización (decisiones rápidas en el lugar).</li>
+</ul>
+
+
+<h2 class="unit" id="casos">Casos clásicos del parcial</h2>
+
+
+<h2 id="caso-relaciones">A. Clasificar relaciones formales</h2>
+<p>Es uno de los ejercicios típicos del parcial: te dan situaciones y tenés que decir si son <strong>lineal</strong>, <strong>funcional</strong> o <strong>staff</strong>. Acá la clave para diferenciarlas:</p>
+
+<table>
+<tr><th>Tipo</th><th>Quién manda</th><th>Quién obedece</th><th>Cómo se nota en el caso</th></tr>
+<tr><td><strong>Lineal</strong></td><td>Jefe a subordinado dentro de la misma área</td><td>Subordinado directo</td><td>"El Gerente de X le ordena a su equipo de X..." / "Es responsable de su área"</td></tr>
+<tr><td><strong>Funcional</strong></td><td>Especialista de un área dicta normas para toda la empresa</td><td>Cualquier área tiene que obedecer</td><td>"RRHH establece régimen para toda la empresa" / "Marketing fija estándares a seguir por todos"</td></tr>
+<tr><td><strong>Staff</strong></td><td>Nadie manda</td><td>Nadie obedece</td><td>"Asesor sugiere/recomienda" / "Estudio para que el director decida si lo aplica"</td></tr>
+</table>
+
+<div class="box">
+<span class="label">Truco</span>
+<p>Buscá el verbo: <strong>"establece"/"emite"/"es responsable"</strong> = <em>lineal</em>. <strong>"sugiere"/"recomienda"/"asesora"</strong> = <em>staff</em>. <strong>"informa a toda la empresa"/"elabora régimen para todos"</strong> = <em>funcional</em>.</p>
+</div>
+
+
+<h2 id="caso-entorno">B. Identificar variables del entorno</h2>
+<p>Te dan un texto con frases marcadas y tenés que identificar la variable del entorno y si es <strong>macro</strong> o <strong>micro</strong>. Pasos:</p>
+
+<ol>
+  <li><strong>Leer la frase</strong> con atención: ¿de qué habla? ¿Qué actor o factor menciona?</li>
+  <li><strong>Clasificar el actor:</strong> ¿es un cliente, competidor, proveedor, sindicato, sistema financiero, sector económico, grupo de presión directa? → <strong>microentorno</strong>. ¿Es la sociedad, tecnología, cultura, economía, política, grupo de presión indirecta? → <strong>macroentorno</strong>.</li>
+  <li><strong>Definir el impacto:</strong> ¿es positivo (+) o negativo (−) para la organización del texto?</li>
+</ol>
+
+<div class="box">
+<span class="label">Patrones frecuentes</span>
+<ul style="margin:6px 0">
+  <li>Apertura/cierre de competidores → <strong>competencia (micro)</strong></li>
+  <li>Aumento/caída del consumo → <strong>clientes (micro)</strong></li>
+  <li>Cambios en proveedores o sus precios → <strong>proveedores (micro)</strong></li>
+  <li>Datos macroeconómicos (PIB, empleo) → <strong>factor económico (macro)</strong></li>
+  <li>Atentados, leyes, gobierno → <strong>factor político (macro)</strong></li>
+  <li>Modas, valores sociales, cultura → <strong>factor cultural (macro)</strong></li>
+  <li>Lobbies, ONGs sectoriales → <strong>grupos de presión directa (micro)</strong></li>
+  <li>Movimientos sociales, opinión pública general → <strong>grupos de presión indirecta (macro)</strong></li>
+</ul>
+</div>
+
+
+<footer>
+Resumen del apunte de Administración I · UCES 2026 · Esp. Lic. Brugnoli y Lic. Rudaz
+</footer>
+
+</div>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  });
+}
+</script>
+
+</body>
+</html>

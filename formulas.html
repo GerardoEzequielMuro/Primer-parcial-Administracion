@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casos resueltos - Administración I | UCES 2026</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1a1a1a">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;background:#fafafa;color:#1a1a1a;line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,250,250,.92);backdrop-filter:blur(10px);border-bottom:1px solid #e5e5e5;padding:12px 0}
+.nav-inner{max-width:820px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav-title{font-weight:600;font-size:15px}
+.nav-links{display:flex;gap:14px;overflow-x:auto;font-size:12.5px}
+.nav-links a{color:#666;text-decoration:none;white-space:nowrap}
+.nav-links a:hover{color:#1a1a1a}
+.container{max-width:820px;margin:0 auto;padding:90px 32px 80px}
+h1{font-size:28px;font-weight:700;letter-spacing:-.02em;margin-bottom:6px;line-height:1.2}
+.subtitle{color:#666;font-size:14.5px;margin-bottom:28px}
+h2{font-size:22px;font-weight:700;margin:56px 0 14px;padding-top:26px;border-top:2px solid #1a1a1a;line-height:1.3}
+h2:first-of-type{border-top:none;padding-top:0;margin-top:0}
+h3{font-size:16px;font-weight:600;margin:22px 0 8px;color:#333}
+p{margin:8px 0;color:#333}
+strong{color:#1a1a1a;font-weight:600}
+em{color:#333}
+ul,ol{margin:8px 0;padding-left:22px;color:#333}
+li{margin:5px 0}
+.key{background:#1a1a1a;color:#fff;padding:18px 22px;margin:16px 0;font-size:16px;border-radius:4px;font-weight:500}
+.key .lbl{display:block;font-size:11px;color:#9ca3af;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;font-weight:600}
+.box{background:#f5f5f5;padding:14px 18px;margin:14px 0;border-left:2px solid #1a1a1a;border-radius:2px}
+.box p:first-child{margin-top:0}.box p:last-child{margin-bottom:0}
+.box .label{font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#666;display:block;margin-bottom:4px}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px;border:1px solid #e5e5e5;background:#fff}
+th{background:#f5f5f5;text-align:left;padding:8px 10px;font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid #e5e5e5}
+td{padding:8px 10px;border-bottom:1px solid #f0f0f0;vertical-align:top;color:#333}
+tr:last-child td{border-bottom:none}
+.ex{background:#fff;border:1px solid #e5e5e5;padding:0;margin:14px 0;border-radius:2px}
+.ex>.head{padding:12px 16px;font-weight:600;font-size:14.5px;background:#f5f5f5;border-bottom:1px solid #e5e5e5;display:flex;align-items:center;gap:10px}
+.ex>.head .num{background:#1a1a1a;color:#fff;width:24px;height:24px;border-radius:50%;text-align:center;font-size:12px;line-height:24px;flex-shrink:0}
+.ex>.body{padding:14px 16px;font-size:14.5px}
+.ex .quote{margin:8px 0;padding:8px 12px;background:#fafafa;border-left:2px solid #9ca3af;font-style:italic;color:#555;font-size:14px}
+details{margin-top:12px;border-top:1px dashed #e5e5e5;padding-top:10px}
+details summary{cursor:pointer;font-size:13px;color:#1a1a1a;font-weight:600;padding:6px 10px;background:#fafafa;border:1px solid #e5e5e5;border-radius:2px;list-style:none;display:inline-flex;align-items:center;gap:6px;user-select:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▶";font-size:9px;color:#666;transition:transform .2s}
+details[open] summary::before{transform:rotate(90deg)}
+details[open] summary{background:#f0f9f4;border-color:#16a34a;color:#14532d}
+details .sol{padding:12px 14px;margin-top:10px;background:#fafafa;border:1px solid #e5e5e5;border-radius:2px;font-size:14px}
+details .sol .step{margin:8px 0;padding:8px 12px;background:#fff;border-left:2px solid #9ca3af;border-radius:2px}
+details .sol .final{margin-top:10px;padding:8px 12px;background:#f0f9f4;border-left:2px solid #16a34a;font-weight:600;color:#14532d}
+details .sol .just{margin-top:8px;padding:10px 14px;background:#eff6ff;border-left:2px solid #3b82f6;font-size:13.5px;color:#1e3a8a;border-radius:2px}
+details .sol .just::before{content:"💭 Justificación · ";font-weight:700;font-style:normal}
+.tip{background:#fef9e7;border:1px solid #fcd34d;padding:12px 16px;margin:14px 0;border-radius:2px;font-size:14px}
+.tip .lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#92400e;display:block;margin-bottom:4px}
+.tip p{margin:4px 0;color:#78350f}
+footer{margin-top:60px;padding-top:20px;border-top:1px solid #e5e5e5;color:#888;font-size:12.5px;text-align:center}
+@media(max-width:640px){body{font-size:15px}.container{padding:80px 18px 60px}.nav-inner{padding:0 16px;gap:10px}.nav-links{gap:10px;font-size:11.5px}h1{font-size:22px}h2{font-size:18px;margin-top:40px}table{font-size:12.5px}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-title">Casos resueltos</div>
+    <div class="nav-links">
+      <a href="index.html">← Resumen</a>
+      <a href="#relaciones">Relaciones</a>
+      <a href="#entorno">Entorno</a>
+      <a href="#escuelas">Escuelas</a>
+      <a href="parciales.html">Parciales</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+<h1>Casos resueltos paso a paso</h1>
+<p class="subtitle">Cada tipo de ejercicio del parcial explicado con varios casos. Justificación incluida en cada respuesta.</p>
+
+<div class="tip">
+<span class="lbl">📐 Cómo usar</span>
+<p>Leé la regla principal de cada bloque, después intentá los casos sin abrir la respuesta. Cada respuesta trae el resultado (verde) y una <strong>justificación</strong> (azul) explicando por qué la elección es correcta.</p>
+</div>
+
+
+<h2 id="relaciones">A. Clasificar relaciones formales</h2>
+
+<div class="key">
+<span class="lbl">La regla en una línea</span>
+<strong>Lineal</strong>: jefe ordena a su equipo. <strong>Funcional</strong>: especialista dicta para toda la empresa. <strong>Staff</strong>: asesora, no manda.
+</div>
+
+<table>
+<tr><th>Tipo</th><th>Verbos típicos</th><th>Quién manda y a quién</th></tr>
+<tr><td><strong>Lineal</strong></td><td>"establece", "emite", "es responsable de", "ordena", "elabora cronograma"</td><td>Un jefe a su equipo dentro de su área (vertical, directa)</td></tr>
+<tr><td><strong>Funcional</strong></td><td>"informa a toda la empresa", "elabora régimen para todo el personal", "fija estándares"</td><td>Un especialista (RRHH, Marketing, Compras) dicta normas que aplican a toda la organización</td></tr>
+<tr><td><strong>Staff</strong></td><td>"sugiere", "asesora", "recomienda", "evalúa para que el director decida"</td><td>Asesor que solo recomienda. La decisión final la toma otro</td></tr>
+</table>
+
+<h3>Casos del parcial 2024 (con respuesta del alumno)</h3>
+
+<div class="ex">
+<div class="head"><span class="num">1</span>El Gerente de Producción establece el cronograma de elaboración y empaque del producto X para el mes de mayo.</div>
+<div class="body">
+<details><summary>Ver respuesta</summary>
+<div class="sol">
+<div class="step"><strong>Verbo clave:</strong> "establece el cronograma".</div>
+<div class="step"><strong>Quién:</strong> el Gerente de Producción.</div>
+<div class="step"><strong>A quién:</strong> a su propio equipo de producción (no a toda la empresa).</div>
+<div class="final">✓ Lineal</div>
+<div class="just">El gerente está dando una orden directa a su área. Es una autoridad jerárquica vertical y directa: él manda en su sector. No es funcional porque no está dictando normas que apliquen a toda la empresa, ni staff porque no está asesorando, está <em>decidiendo</em>.</div>
+</div>
+</details>
+</div>
+</div>
+
+<div class="ex">
+<div class="head"><span class="num">2</span>El asesor financiero de la compañía sugiere al Director de Finanzas un crédito para la empresa.</div>
+<div class="body">
+<details><summary>Ver respuesta</summary>
+<div class="sol">
+<div class="step"><strong>Verbo clave:</strong> "sugiere".</div>
+<div class="step"><strong>Quién:</strong> un asesor.</div>
+<div class="step"><strong>A quién:</strong> a su superior jerárquico (el Director).</div>
+<div class="final">✓ Staff</div>
+<div class="just">"Sugiere" es el verbo típico del staff: el asesor recomienda pero no decide. El Director es quien va a tomar la decisión final. Si dijera "le ordena pedir un crédito" sería lineal, pero como sugiere, es staff puro.</div>
+</div>
+</details>
+</div>
+</div>
+
+<div class="ex">
+<div class="head"><span class="num">3</span>La Gerente de RRHH de la empresa elabora un régimen de sanciones aplicables a todo el personal.</div>
+<div class="body">
+<details><summary>Ver respuesta</summary>
+<div class="sol">
+<div class="step"><strong>Verbo clave:</strong> "elabora un régimen aplicable a todo el personal".</div>
+<div class="step"><strong>Quién:</strong> la Gerente de RRHH.</div>
+<div class="step"><strong>A quién:</strong> a TODA la empresa.</div>
+<div class="final">✓ Funcional</div>
+<div class="just">Acá la trampa es que parece lineal porque "elabora", pero la clave es <strong>"aplicable a todo el personal"</strong>. RRHH es un área especializada que dicta normas para toda la organización. No es lineal porque no es solo a su equipo de RRHH; es funcional porque ejerce autoridad parcial (sólo en lo de RRHH) sobre toda la empresa.</div>
+</div>
+</details>
+</div>
+</div>
+
+<div class="ex">
+<div class="head"><span class="num">4</span>La Gerente de Administración es responsable de las áreas de Compras y Contrataciones.</div>
+<div class="body">
+<details><summary>Ver respuesta</summary>
+<div class="sol">
+<div class="step"><strong>Verbo clave:</strong> "es responsable de".</div>
+<div class="step"><strong>Quién:</strong> la Gerente de Administración.</div>
+<div class="step"><strong>A quién:</strong> a sus áreas dependientes (Compras y Contrataciones).</div>
+<div class="final">✓ Lineal</div>
+<div class="just">Es una relación de autoridad jerárquica directa: la Gerente tiene a su cargo dos áreas que dependen de ella. La gerente puede dar órdenes directas a esas áreas. Es la típica relación piramidal de la estructura lineal.</div>
+</div>
+</details>
+</div>
+</div>
+
+<div class="ex">
+<div class="head"><span class="num">5</span>La responsable de Compras emite una orden de pago para un proveedor.</div>
+<div class="body">
+<details><summary>Ver respuesta</summary>
+<div class="sol">
+<div class="step"><strong>Verbo clave:</strong> "emite una orden de pago".</div>
+<div class="step"><strong>Quién:</strong> la responsable de Compras.</div>
+<div class="step"><strong>A quién:</strong> ejecuta una acción dentro de su responsabilidad operativa.</div>
+<div class="final">✓ Lineal</div>
+<div class="just">Acción operativa dentro de su área de responsabilidad. La responsable está ejerciendo su autoridad lineal directa sobre el proceso de pagos que está bajo su área. No está asesorando a nadie ni dictando normas para otra área.</div>
+</div>
+</details>
+</div>
+</div>
+
+<div class="ex">
+<div class="head"><span class="num">6</span>El área de Marketing informa a toda la empresa cuáles son los estándares a seguir.</div>
+<div class="body">
+<details><summary>Ver respuesta</summary>
+<div class="sol">
+<div class="step"><strong>Verbo clave:</strong> "informa a toda la empresa los estándares".</div>
+<div class="step"><strong>Quién:</strong> Marketing (área especializada).</div>
+<div class="step"><strong>A quién:</strong> a TODA la empresa.</div>
+<div class="final">✓ Funcional</div>
+<div class="just">Marketing está dictando normas (los estándares) que se aplican a toda la organización. Tiene autoridad parcial pero universal: solo manda en lo de Marketing, pero sobre todas las áreas. Como pasa con RRHH cuando establece políticas, o Compras cuando fija procedimientos.</div>
+</div>
+</details>
+</div>
+</div>
+
+<div class="ex">
+<div class="head"><span class="num">7</span>Los licenciados en marketing realizan un estudio de mercado, para que sea evaluado por el Director del área, ente decidirá o no si lo tendrá en cuenta.</div>
+<div class="body">
+<details><summary>Ver respuesta</summary>
+<div class="sol">
+<div class="step"><strong>Verbo clave:</strong> "para que sea evaluado por el Director, ente decidirá si lo tendrá en cuenta".</div>
+<div class="step"><strong>Rol:</strong> los licenciados generan información para que decida otro.</div>
+<div class="final">✓ Staff</div>
+<div class="just">Los licenciados están haciendo un trabajo de consultoría/asesoría. La frase "ente decidirá si lo tendrá en cuenta" es la firma del staff: la decisión la toma alguien más. Los licenciados aportan el insumo (estudio), pero no tienen capacidad de imponerlo.</div>
+</div>
+</details>
+</div>
+</div>
+
+
+<h2 id="entorno">B. Identificar variables del entorno</h2>
+
+<div class="key">
+<span class="lbl">La regla en dos preguntas</span>
+1) <strong>¿Qué actor o factor menciona la frase?</strong> 2) <strong>¿Influye directo o indirecto en la organización?</strong> Directo = <strong>micro</strong>. Indirecto = <strong>macro</strong>.
+</div>
+
+<table>
+<tr><th>Aparece esto en la frase</th><th>Variable</th><th>Tipo</th></tr>
+<tr><td>Clientes, consumidores, demanda específica</td><td>Clientes</td><td>Micro</td></tr>
+<tr><td>Otra empresa que ofrece lo mismo, franquicias entrando, marca rival</td><td>Competidores</td><td>Micro</td></tr>
+<tr><td>Proveedores, insumos, materia prima</td><td>Proveedores</td><td>Micro</td></tr>
+<tr><td>Industria, rubro, sector económico específico</td><td>Sector económico</td><td>Micro</td></tr>
+<tr><td>Sindicatos, gremios, paros laborales</td><td>Sindicatos</td><td>Micro</td></tr>
+<tr><td>Bancos, créditos, financiación</td><td>Sistemas financieros</td><td>Micro</td></tr>
+<tr><td>ONGs, lobbies del sector, asociaciones específicas</td><td>Grupos presión directa</td><td>Micro</td></tr>
+<tr><td>Sociedad en general, opinión pública</td><td>Sociedad</td><td>Macro</td></tr>
+<tr><td>Avances tecnológicos, internet, IA</td><td>Tecnología</td><td>Macro</td></tr>
+<tr><td>Modas, valores, costumbres, religión</td><td>Factor cultural</td><td>Macro</td></tr>
+<tr><td>Inflación, dólar, PIB, desempleo, salarios</td><td>Factor económico</td><td>Macro</td></tr>
+<tr><td>Gobierno, leyes, atentados, políticas públicas</td><td>Factor político</td><td>Macro</td></tr>
+<tr><td>Movimientos sociales, organizaciones internacionales</td><td>Grupos presión indirecta</td><td>Macro</td></tr>
+</table>
+
+<h3>Casos del parcial 2024 (texto: turismo en Madrid)</h3>
+
+<div class="ex">
+<div class="head"><span class="num">1</span>"En poco tiempo, la capital de España se está convirtiendo en uno de los destinos turísticos más concurridos del país y de Europa."</div>
+<div class="body">
+<details><summary>Ver respuesta</summary>
+<div class="sol">
+<div class="step">Habla del aumento de turistas (clientes potenciales) y del crecimiento del sector turismo.</div>
+<div class="final">✓ Sector económico (micro) + Clientes (micro), impacto positivo (+)</div>
+<div class="just">El turismo es la "industria" donde opera la empresa hipotética del texto, así que es el sector económico. Y los turistas son los clientes que llegan, lo cual es directo y positivo. Ambas variables son micro porque influyen directo en la organización.</div>
+</div>
+</details>
+</div>
+</div>
+
+<div class="ex">
+<div class="head"><span class="num">2</span>"Madrid es la única comunidad autónoma que se ha beneficiado de un aumento de visitantes."</div>
+<div class="body">
+<details><summary>Ver respuesta</summary>
+<div class="sol">
+<div class="step">Sigue hablando del flujo de turistas (clientes) y del comportamiento del sector.</div>
+<div class="final">✓ Sector económico (micro) + Clientes (micro), impacto positivo (+)</div>
+<div class="just">Madrid sigue captando turistas mientras otras regiones pierden. Para una empresa madrileña esto es directo: más clientes potenciales (micro). Y muestra cómo se está moviendo el sector turismo (micro).</div>
+</div>
+</details>
+</div>
+</div>
+
+<div class="ex">
+<div class="head"><span class="num">3</span>"Históricamente, la joya de la corona del turismo español ha sido Barcelona. Y lo sigue siendo."</div>
+<div class="body">
+<details><summary>Ver respuesta</summary>
+<div class="sol">
+<div class="step">Barcelona compite directamente con Madrid por turistas.</div>
+<div class="final">✓ Competencia (micro), impacto negativo (−)</div>
+<div class="just">Barcelona es un destino que disputa los mismos clientes que Madrid. Es un competidor directo: variable micro. Para una empresa madrileña la posición dominante de Barcelona es un impacto negativo (le quita turistas).</div>
+</div>
+</details>
+</div>
+</div>
+
+<div class="ex">
+<div class="head"><span class="num">4</span>"Este empobrecimiento cultural ocasionado por lo que podemos llamar turistificación —el impacto que tiene el turismo de masas en las metrópolis— le podría suceder a cada vez más ciudades europeas."</div>
+<div class="body">
+<details><summary>Ver respuesta</summary>
+<div class="sol">
+<div class="step">Habla de un fenómeno cultural (pérdida de identidad por el turismo).</div>
+<div class="final">✓ Factor cultural (macro), impacto negativo (−) + Competencia (micro), impacto positivo (+)</div>
+<div class="just">El "empobrecimiento cultural" es un factor cultural macro: afecta a la sociedad en general. Pero también para una empresa que se posiciona como "auténtica" en otra ciudad, esto es un competidor que se debilita (positivo). Doble lectura.</div>
+</div>
+</details>
+</div>
+</div>
+
+<div class="ex">
+<div class="head"><span class="num">5</span>"La ciudad corre peligro de convertirse en otra capital uniformada más de Europa a cambio de la promesa de una fuerte inyección económica."</div>
+<div class="body">
+<details><summary>Ver respuesta</summary>
+<div class="sol">
+<div class="step">Habla de la industria turística y de la economía local.</div>
+<div class="final">✓ Sector económico (micro) + Factor económico (macro), impacto negativo (−)</div>
+<div class="just">El "uniformamiento" del sector turístico es una variable micro (cómo se está comportando el rubro), y la "inyección económica" es un factor macro económico. La frase advierte sobre los efectos del turismo masivo, lo cual tiene impacto negativo en la identidad cultural y la diversidad del sector.</div>
+</div>
+</details>
+</div>
+</div>
+
+<div class="ex">
+<div class="head"><span class="num">6</span>"El turismo representa más del 11 por ciento del producto interno bruto (PIB) de España, pero eso no significa que las ganancias se redistribuyan entre todos los miembros de la sociedad."</div>
+<div class="body">
+<details><summary>Ver respuesta</summary>
+<div class="sol">
+<div class="step">Datos macroeconómicos (PIB, distribución de la riqueza).</div>
+<div class="final">✓ Sector económico (micro) + Factor económico (macro), impacto positivo (+)</div>
+<div class="just">El PIB es claramente un factor económico macro. Pero el dato del 11% también te dice que el sector turismo (micro) está fuerte en la economía española. Para una empresa turística es positivo: el sector aporta mucho al PIB.</div>
+</div>
+</details>
+</div>
+</div>
+
+<div class="ex">
+<div class="head"><span class="num">7</span>"El aumento del valor de las calles se eleva en función de la demanda turística, lo que afecta a los inquilinos que radican en la ciudad."</div>
+<div class="body">
+<details><summary>Ver respuesta</summary>
+<div class="sol">
+<div class="step">Habla de demanda turística (clientes) y de gentrificación (inmobiliaria).</div>
+<div class="final">✓ Sector económico (micro) + Clientes (micro), impacto negativo (−) y positivo (+) según mire</div>
+<div class="just">La demanda turística son los clientes (micro, +). Pero también afecta el sector inmobiliario y a los inquilinos: para una empresa turística es positivo (más demanda), para los locales es negativo. El aumento de alquileres también es un factor económico (macro), pero el foco aquí es que el sector turístico está empujando precios.</div>
+</div>
+</details>
+</div>
+</div>
+
+<div class="ex">
+<div class="head"><span class="num">8</span>"Ya hay empresas que gestionan edificios enteros para darlos a renta temporal después de desalojar a sus inquilinos."</div>
+<div class="body">
+<details><summary>Ver respuesta</summary>
+<div class="sol">
+<div class="step">Habla de empresas que ofrecen alojamiento (proveedores del sector turístico).</div>
+<div class="final">✓ Proveedores (micro), impacto positivo (+)</div>
+<div class="just">Estas empresas (Airbnb, gestores inmobiliarios) son proveedores de alojamiento turístico: insumo clave para el sector. Es una variable micro porque influye directo. El crecimiento de la oferta de hospedaje es positivo para el desarrollo del turismo en sí.</div>
+</div>
+</details>
+</div>
+</div>
+
+<div class="ex">
+<div class="head"><span class="num">9</span>"Esta situación ha llevado al Ayuntamiento de Madrid a designar 'viviendas turísticas' a las que lo sean más de noventa días, tengan acceso independiente desde la calle y cuenten con una recepción..."</div>
+<div class="body">
+<details><summary>Ver respuesta</summary>
+<div class="sol">
+<div class="step">El Ayuntamiento es el gobierno local que regula con leyes.</div>
+<div class="final">✓ Proveedores (micro) + Factor político (macro), impacto positivo (+)</div>
+<div class="just">El gobierno regula → factor político (macro). Pero también afecta a los proveedores de alojamiento (micro): qué Airbnbs son legales y cuáles no. Para una empresa hotelera tradicional es positivo (sus competidores informales se restringen).</div>
+</div>
+</details>
+</div>
+</div>
+
+<div class="ex">
+<div class="head"><span class="num">10</span>"Mientras ha habido protestas de los vecinos, se han abierto casi quinientos expedientes administrativos para cesar la actividad de algunos pisos."</div>
+<div class="body">
+<details><summary>Ver respuesta</summary>
+<div class="sol">
+<div class="step">Vecinos protestando (sociedad) + acción del Estado (política).</div>
+<div class="final">✓ Grupos de presión directa (micro) + Factor político (macro), impacto negativo (−)</div>
+<div class="just">Los vecinos organizados son un grupo de presión directa (micro): un grupo organizado que afecta a empresas específicas del sector turístico. Y los expedientes son acción gubernamental, factor político macro. Para empresas de Airbnb es negativo: los están sancionando.</div>
+</div>
+</details>
+</div>
+</div>
+
+<div class="ex">
+<div class="head"><span class="num">11</span>"Los habitantes de Madrid tienen que organizarse para exigir tanto al gobierno como a las empresas que se benefician del turismo un equilibrio entre un turismo razonable y el bienestar de los residentes."</div>
+<div class="body">
+<details><summary>Ver respuesta</summary>
+<div class="sol">
+<div class="step">Habla de organización ciudadana presionando a empresas y gobierno.</div>
+<div class="final">✓ Grupos de presión directa (micro) + Factor político (macro)</div>
+<div class="just">"Habitantes organizados que exigen" es claramente un grupo de presión organizado, pero por ser local y específico al sector turístico, va como presión directa (micro). Y exigir al gobierno conecta con el factor político macro. Es la versión local del activismo turismofóbico mencionado antes.</div>
+</div>
+</details>
+</div>
+</div>
+
+
+<h2 id="escuelas">C. Identificar Escuelas de la Administración</h2>
+
+<div class="key">
+<span class="lbl">La trampa</span>
+La pregunta del parcial siempre te da <strong>frases que son hipótesis o resultados</strong> de cada escuela, sin nombrar al autor. Tenés que reconocer las palabras clave.
+</div>
+
+<h3>Pistas para identificar cada escuela</h3>
+<table>
+<tr><th>Si la frase dice...</th><th>Es la escuela...</th></tr>
+<tr><td>"Eficiencia del trabajador", "remuneración por rendimiento", "selección por cualidades físicas", "estandarización"</td><td><strong>Clásica - Taylor</strong> (Teoría Científica)</td></tr>
+<tr><td>"Sistematizar la administración", "dividir en áreas", "manual de funciones", "14 principios"</td><td><strong>Clásica - Fayol</strong> (Teoría Clásica)</td></tr>
+<tr><td>"Carácter legal de las normas", "impersonalidad", "jerarquía", "sistema cerrado"</td><td><strong>Burocrática - Weber</strong></td></tr>
+<tr><td>"Hawthorne", "líder y grupo", "ser social", "organización informal", "complejidad de motivaciones"</td><td><strong>Relaciones Humanas - Mayo</strong></td></tr>
+<tr><td>"Pirámide de necesidades", "Teoría X e Y", "tipos de participación", "rol del individuo"</td><td><strong>Sociología/Psicología - Maslow + McGregor</strong></td></tr>
+<tr><td>"Sistema abierto", "subsistemas", "interrelacionado", "entorno", "todo coordinado"</td><td><strong>Teoría de los Sistemas</strong></td></tr>
+<tr><td>"Visión competitiva", "planeamiento a largo plazo", "ventaja competitiva"</td><td><strong>Administración Estratégica</strong></td></tr>
+</table>
+
+<h3>Casos del parcial 2024</h3>
+
+<div class="ex">
+<div class="head"><span class="num">1</span>"La única manera de aumentar la productividad es elevando la eficiencia de los trabajadores."</div>
+<div class="body">
+<details><summary>Ver respuesta</summary>
+<div class="sol">
+<div class="step">Palabra clave: <strong>"eficiencia de los trabajadores"</strong>.</div>
+<div class="final">✓ Teoría Científica (Taylor)</div>
+<div class="just">La obsesión con la eficiencia individual del operario es la firma de Taylor. Su lógica era estudiar tiempos y movimientos para optimizar cada tarea y subir la productividad por trabajador. Es la base de la teoría científica.</div>
+</div>
+</details>
+</div>
+</div>
+
+<div class="ex">
+<div class="head"><span class="num">2</span>"Propuso seleccionar y entrenar adecuadamente a los operarios, ubicándolos según sus cualidades físicas."</div>
+<div class="body">
+<details><summary>Ver respuesta</summary>
+<div class="sol">
+<div class="step">Palabra clave: <strong>"según sus cualidades físicas"</strong>.</div>
+<div class="final">✓ Teoría Científica (Taylor)</div>
+<div class="just">Taylor proponía elegir al hombre adecuado para cada tarea según sus capacidades físicas (no intelectuales ni psicológicas). Es la visión mecanicista del trabajador como pieza de la máquina. Marca clara de la teoría científica.</div>
+</div>
+</details>
+</div>
+</div>
+
+<div class="ex">
+<div class="head"><span class="num">3</span>"Sistema de remuneración según rendimientos individuales."</div>
+<div class="body">
+<details><summary>Ver respuesta</summary>
+<div class="sol">
+<div class="step">Palabra clave: <strong>"remuneración según rendimientos individuales"</strong>.</div>
+<div class="final">✓ Teoría Científica (Taylor)</div>
+<div class="just">El sistema de pago por unidad producida o por rendimiento es una de las propuestas más conocidas de Taylor. Asume que el trabajador es motivado solo económicamente (la "teoría del homo economicus"), una de las críticas que después le hace la Escuela de Relaciones Humanas.</div>
+</div>
+</details>
+</div>
+</div>
+
+<div class="ex">
+<div class="head"><span class="num">4</span>"Es el primero en sistematizar a la administración."</div>
+<div class="body">
+<details><summary>Ver respuesta</summary>
+<div class="sol">
+<div class="step">Palabra clave: <strong>"primero en sistematizar"</strong>.</div>
+<div class="final">✓ Teoría Clásica (Fayol)</div>
+<div class="just">Fayol fue el primero en intentar dar a la administración un cuerpo teórico unificado. Mientras Taylor estudiaba el trabajo del operario, Fayol miró arriba: cómo se gestiona toda la empresa. Por eso a Fayol se le atribuye haber "fundado" la administración como disciplina ordenada.</div>
+</div>
+</details>
+</div>
+</div>
+
+<div class="ex">
+<div class="head"><span class="num">5</span>"Divide a las organizaciones en áreas. Elabora modelo de manual de funciones."</div>
+<div class="body">
+<details><summary>Ver respuesta</summary>
+<div class="sol">
+<div class="step">Palabras clave: <strong>"divide en áreas"</strong> + <strong>"manual de funciones"</strong>.</div>
+<div class="final">✓ Teoría Clásica (Fayol)</div>
+<div class="just">Fayol identificó las 6 áreas de toda empresa (técnica, comercial, financiera, seguridad, contable, administrativa) y propuso describir cada cargo en un manual. Esto es la base de cualquier organigrama y descripción de puestos moderna. Marca distintiva de Fayol.</div>
+</div>
+</details>
+</div>
+</div>
+
+<div class="ex">
+<div class="head"><span class="num">6</span>"Pensaba que las prácticas administrativas deben seguir ciertos patrones, los cuales se pueden identificar y analizar — 14 principios."</div>
+<div class="body">
+<details><summary>Ver respuesta</summary>
+<div class="sol">
+<div class="step">Palabra clave: <strong>"14 principios"</strong>.</div>
+<div class="final">✓ Teoría Clásica (Fayol)</div>
+<div class="just">Los 14 principios de Fayol (división del trabajo, autoridad, disciplina, unidad de mando, etc) son el aporte teórico más reconocido de su escuela. Si la frase los menciona, es Fayol al 100%.</div>
+</div>
+</details>
+</div>
+</div>
+
+
+<footer>
+Casos resueltos · Fundamentos de Administración I · UCES 2026
+</footer>
+
+</div>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  });
+}
+</script>
+
+</body>
+</html>
